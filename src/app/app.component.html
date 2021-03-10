@@ -1,6 +1,8 @@
 <div>
   <table mat-table [dataSource]="settingDataSource" class="full-width-table" matSort aria-label="Elements">
     <!-- 表头 -->
+    <!-- displayedColumns:这个数组表示的每一列的顺序 -->
+    <!-- sticky: true 表示表头固定，内容上下滚动的时候，表头不动 -->
     <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
@@ -44,8 +46,3 @@
 
   </table>
 </div>
-<ul class="heroes">
-  <li *ngFor="let setting of settingList">
-    <span>{{setting.name}}</span>
-  </li>
-</ul>

@@ -9,8 +9,11 @@ import { Individuation } from './Individuation';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  // 数据列顺序
   displayedColumns: string[] = ['rowIndex', 'name', 'type', 'createId', 'createTime', 'updateTime'];
+  // 数据数组
   settingList: Individuation[] = [];
+  // 使用自带的DataSource包装数据
   settingDataSource = new MatTableDataSource<Individuation>(this.settingList);
 
   constructor(
@@ -28,6 +31,7 @@ export class AppComponent {
     const data = {
       "type": 4
     };
+    // 调用hhtp服务请求数据，主要是为了将请求的一些公关内容提取为一个服务
     this.httpService.getSettingData(url, data)
       .subscribe({
         next: (result) => {
@@ -38,6 +42,5 @@ export class AppComponent {
         error: (err) => (console.log(err)),
       });
   }
-
 }
 
